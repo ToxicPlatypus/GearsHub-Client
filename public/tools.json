@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Exhaust",
+    "image": "https://i.ibb.co/z8BV5Hf/exhaust.jpg",
+    "description": "A motorcycle exhaust system also known as muffler is made to route exhaust gases away from the engine. As fuel burn inside the engine gases and fume are produced, so this gases and fumes need to be taken out from the engine.",
+    "minimum": 1,
+    "available": 23,
+    "price": 30000
+  },
+  {
+    "name": "Suspension",
+    "image": "https://i.ibb.co/7rzcn66/suspension.jpg",
+    "description": "There are three basic types of suspension components: linkages, springs, and shock absorbers. The linkages are the bars and brackets that support the wheels, springs and shock absorbers. Springs cushion the vehicle by dampening shock loads from bumps and holes in the road.",
+    "minimum": 2,
+    "available": 28,
+    "price": 23000
+  },
+  {
+    "name": "Tires",
+    "image": "https://i.ibb.co/XV1WL57/tires.jpg",
+    "description": "The first number (180) is the width of the tire in millimeters. The second number (70) is the aspect ratio, which is the height of the sidewall. The height is 70% of the width or 126mm high. The third number (16) is the rim size.",
+    "minimum": 2,
+    "available": 28,
+    "price": 32000
+  },
+  {
+    "name": "Luggage and Racks",
+    "image": "https://i.ibb.co/dP5DWBs/luggage.jpg",
+    "description": "A luggage carrier, also commonly called a rack, is a device attached to a bicycle to which cargo or panniers can be attached. This is popular with utility bicycles and touring bicycles.",
+    "minimum": 3,
+    "available": 3530,
+    "price": 2200
+  },
+  {
+    "name": "Wheels and Rims",
+    "image": "https://i.ibb.co/HKzQ9Ks/rims.jpg",
+    "description": "Motorcycle wheels come in two different types of rims: solid wheels or spoke wheels. The rim and spokes are cast as a single unit in the former case, whereas the rims are laced with spokes in the latter case. Rims are available in several different types of designs",
+    "minimum": 1,
+    "available": 210,
+    "price": 3050
+  },
+  {
+    "name": "Lights and Electrical",
+    "image": "https://i.ibb.co/GT1hYtn/lights.jpg",
+    "description": "The charging system consists of three main components: the battery, alternator, and the regulator/rectifier. Your motorcycle battery stores electrical energy for use and acts as a buffer for the bike's electrical system. The alternator creates alternating currents to run the bike and charge the battery.",
+    "minimum": 5,
+    "available": 228,
+    "price": 330
+  }
+]
