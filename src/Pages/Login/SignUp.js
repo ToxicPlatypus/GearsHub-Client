@@ -1,17 +1,24 @@
 import React from "react";
 import google from "../../Assets/Image/search.png";
 import {
-  useSignInWithEmailAndPassword,
+  useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
+  useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import Loading from "../Loading/Loading";
-const Login = () => {
+import { Link, useNavigate } from "react-router-dom";
+
+const SignUp = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-  const [signInWithEmailAndPassword, eUser, eLoading, eError] =
-    useSignInWithEmailAndPassword(auth);
+
+  const [createUserWithEmailAndPassword, eUser, eLoading, eError] =
+    useCreateUserWithEmailAndPassword(auth);
+
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+  const navigate = useNavigate();
+
   const {
     register,
     formState: { errors },
@@ -19,29 +26,56 @@ const Login = () => {
   } = useForm();
 
   let signInError;
-  const navigate = useNavigate();
-  const location = useLocation();
-  let from = location.state?.from?.pathname || "/";
+  console.log(eError);
 
   if (user || eUser) {
-    navigate(from, { replace: true });
+    console.log(user);
   }
-  if (loading || eLoading) {
-    <Loading></Loading>;
+
+  if (loading || eLoading || updating) {
+    <button class="btn btn-square loading"></button>;
   }
-  if (error || eError) {
+
+  if (error || eError || updateError) {
     signInError = (
-      <p className="text-red-500 ">{error?.message || eError?.message}</p>
+      <p className="text-red-500 ">
+        {error?.message || eError?.message || updateError?.message}
+      </p>
     );
   }
-  const onSubmit = (data) => {
+
+  const onSubmit = async (data) => {
     console.log(data);
-    signInWithEmailAndPassword(data.email, data.password);
+    await createUserWithEmailAndPassword(data.email, data.password);
+    await updateProfile({ displayName: data.name });
+    navigate("/purchase");
   };
   return (
     <div>
-      <h1 className="text-3xl text-center uppercase">login</h1>
+      <h1 className="text-3xl text-center uppercase">sign up</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
+        <div class="form-control w-full max-w-xs mx-auto">
+          <span class="label-text mb-2">Name</span>
+          <input
+            type="text"
+            placeholder="Name"
+            class="input input-bordered w-full max-w-xs"
+            {...register("name", {
+              required: {
+                value: true,
+                message: "Name is required",
+              },
+            })}
+          />
+          <label class="label">
+            {errors.name?.type === "required" && (
+              <span className="label-text-alt text-red-500">
+                {errors.name.message}
+              </span>
+            )}
+          </label>
+        </div>
+
         <div class="form-control w-full max-w-xs mx-auto">
           <span class="label-text mb-2">Email</span>
           <input
@@ -72,6 +106,7 @@ const Login = () => {
             )}
           </label>
         </div>
+
         <div class="form-control w-full max-w-xs mx-auto">
           <span class="label-text mb-2">Password</span>
           <input
@@ -106,14 +141,14 @@ const Login = () => {
         <input
           className="btn btn-accent btn-sm w-full max-w-xs flex items-center justify-center text-center mx-auto"
           type="submit"
-          value="LOGIN"
+          value="SIGNUP"
         />
       </form>
       <p className="text-center m-2">
-        New Here{" "}
-        <Link to="/signUp" className="text-blue-500">
+        Already have an account{" "}
+        <Link to="/login" className="text-blue-500">
           {" "}
-          Create new account.
+          Login
         </Link>
       </p>
       <div class="divider mx-20 my-4">OR</div>
@@ -130,4 +165,5 @@ const Login = () => {
     </div>
   );
 };
-export default Login;
+
+export default SignUp;
