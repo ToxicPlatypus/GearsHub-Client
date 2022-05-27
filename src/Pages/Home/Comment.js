@@ -11,7 +11,7 @@ const Comment = () => {
             Please leave a comment
           </h1>
           <textarea
-            class="textarea textarea-bordered"
+            class="textarea textarea-bordered w-full"
             placeholder="Text Here"
           ></textarea>
           <br />
