@@ -1,6 +1,5 @@
 import React from "react";
 import Banner from "../Banner/Banner";
-import Footer from "../Footer/Footer";
 import Stats from "../Stats/Stats";
 import Tools from "../Tools/Tools";
 import Comment from "./Comment";
@@ -16,7 +15,6 @@ const Home = () => {
       <Review></Review>
       <Community></Community>
       <Comment></Comment>
-      <Footer></Footer>
     </div>
   );
 };
