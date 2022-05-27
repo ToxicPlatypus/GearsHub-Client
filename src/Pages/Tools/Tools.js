@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import Tool from "./Tool";
 const Tools = () => {
   const [tool, setTool] = useState([]);
+
   useEffect(() => {
     fetch("http://localhost:5000/service")
       .then((res) => res.json())
       .then((data) => setTool(data));
+    // .then((data) => console.log(data));
   }, []);
   return (
     <div>
