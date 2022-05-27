@@ -23,9 +23,6 @@ const firebaseConfig = {
 //   appId: "1:27024628113:web:b981dac1dcc0365b58a230",
 // };
 
-console.log(firebaseConfig.appId);
-console.log("bols");
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
