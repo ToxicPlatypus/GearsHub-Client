@@ -3,6 +3,7 @@ import Banner from "../Banner/Banner";
 import Footer from "../Footer/Footer";
 import Stats from "../Stats/Stats";
 import Tools from "../Tools/Tools";
+import Comment from "./Comment";
 import Community from "./Community";
 import Review from "./Review";
 
@@ -14,6 +15,7 @@ const Home = () => {
       <Stats></Stats>
       <Review></Review>
       <Community></Community>
+      <Comment></Comment>
       <Footer></Footer>
     </div>
   );
