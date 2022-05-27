@@ -6,7 +6,7 @@ import face3 from "../../Assets/Image/Faces/face3.jpg";
 const Review = () => {
   return (
     <div className="mx-8">
-      <p className="text-xl lg:text-5xl uppercase font-bold text-center mt-12">
+      <p className="text-xl lg:text-4xl uppercase font-bold text-center mt-12">
         User Reviews
       </p>
       <div className="grid grid-cols-1 lg:grid-cols-3 mt-8 gap-8">

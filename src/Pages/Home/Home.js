@@ -3,6 +3,7 @@ import Banner from "../Banner/Banner";
 import Footer from "../Footer/Footer";
 import Stats from "../Stats/Stats";
 import Tools from "../Tools/Tools";
+import Community from "./Community";
 import Review from "./Review";
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
       <Tools></Tools>
       <Stats></Stats>
       <Review></Review>
+      <Community></Community>
       <Footer></Footer>
     </div>
   );
