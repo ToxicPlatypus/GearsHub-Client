@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import google from "../../Assets/Image/search.png";
 import {
   useSignInWithEmailAndPassword,
@@ -8,6 +8,7 @@ import auth from "../../firebase.init";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Loading from "../Loading/Loading";
+import useToken from "../../hooks/useToken";
 const Login = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, eUser, eLoading, eError] =
@@ -18,14 +19,19 @@ const Login = () => {
     handleSubmit,
   } = useForm();
 
+  const [token] = useToken(user || eUser);
+
   let signInError;
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
 
-  if (user || eUser) {
-    navigate(from, { replace: true });
-  }
+  useEffect(() => {
+    if (user || eUser) {
+      navigate(from, { replace: true });
+    }
+  }, [token, from, navigate])
+
   if (loading || eLoading) {
     <Loading></Loading>;
   }
