@@ -3,7 +3,7 @@ import React from "react";
 const MyReview = () => {
   return (
     <div>
-      <h2>jdflkasjdkfjk</h2>
+      <h2 className="mt-10">jdflkasjdkfjk</h2>
     </div>
   );
 };

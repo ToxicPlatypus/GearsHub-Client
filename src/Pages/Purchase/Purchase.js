@@ -30,6 +30,7 @@ const Purchase = () => {
       const orderDetails = { name, email, address, phone };
       const updatedQuantity = available - number;
       const newQuantity = { updatedQuantity };
+      console.log("new quantity", newQuantity);
 
       //sending order details to the database
       fetch("http://localhost:5000/order", {
