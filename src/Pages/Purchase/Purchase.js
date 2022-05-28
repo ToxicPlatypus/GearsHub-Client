@@ -74,7 +74,7 @@ const Purchase = () => {
         <div class="hero-content flex-col lg:flex-row">
           <img src={image} class="max-w-sm rounded-lg shadow-2xl" alt="" />
           <div>
-            <h1 class="text-5xl font-bold">{name}</h1>
+            <h1 class="text-5xl font-bold mb-4">{name}</h1>
             <p>{description}</p>
             <p>Price: {price}</p>
             <p>Available: {available}</p>
@@ -82,11 +82,11 @@ const Purchase = () => {
 
             <form
               onSubmit={handleOrder}
-              class="bg-zinc-300 shadow-md rounded px-3 pt-3 mb-4"
+              class="shadow-md rounded px-3 pt-3 mb-4"
             >
               <div class="mb-4">
                 <input
-                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  class="shadow appearance-none border rounded w-25 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="orderQuantity"
                   name="orderQuantity"
                   type="number"
@@ -96,7 +96,7 @@ const Purchase = () => {
               </div>
               <div class="mb-4">
                 <input
-                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  class="shadow appearance-none border rounded w-25 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="username"
                   name="name"
                   type="text"
@@ -105,7 +105,7 @@ const Purchase = () => {
               </div>
               <div class="mb-2">
                 <input
-                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                  class="shadow appearance-none border rounded w-25 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                   id="email"
                   name="email"
                   type="email"
@@ -115,7 +115,7 @@ const Purchase = () => {
               </div>
               <div class="mb-2">
                 <input
-                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                  class="shadow appearance-none border rounded w-25 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                   id="address"
                   name="address"
                   type="text"
@@ -124,14 +124,14 @@ const Purchase = () => {
               </div>
               <div class="mb-2">
                 <input
-                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                  class="shadow appearance-none border rounded w-25 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                   id="phone"
                   name="phone"
                   type="number"
                   placeholder="Phone"
                 />
               </div>
-              <div className="flex justify-center">
+              <div>
                 <input
                   class="btn btn-sm btn-accent my-3"
                   type="submit"
