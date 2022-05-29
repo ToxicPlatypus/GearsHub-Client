@@ -4,7 +4,7 @@ Client Site Link [Create React App](https://github.com/programming-hero-web-cour
 
 Server Site Link [Create React App](https://github.com/programming-hero-web-course1/manufacturer-website-server-side-ToxicPlatypus).
 
-Live Site Link [Create React App](https://github.com/facebook/create-react-app).
+Live Site Link [Create React App](https://gearshub-4851b.web.app/).
 
 ## Website Functionality:
 

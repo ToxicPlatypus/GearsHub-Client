@@ -5,28 +5,31 @@ const Users = () => {
   const [users, setUsers] = useState([]);
   const makeAdmin = (index) => {
     // console.log(users);
-    fetch(`http://localhost:5000/user/admin/${users[index].email}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(users),
-    }).then((res) => {
-      if(res.status === 403){
-        toast.error('failed');
+    fetch(
+      `https://still-dusk-64768.herokuapp.com/user/admin/${users[index].email}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(users),
       }
-      return res.json()
-    })
-    .then(data => {
-      if(data.modifiedCount > 0){
-        toast.success("Made the user an admin");
-      }
-    })
-    
+    )
+      .then((res) => {
+        if (res.status === 403) {
+          toast.error("failed");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          toast.success("Made the user an admin");
+        }
+      });
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/user")
+    fetch("https://still-dusk-64768.herokuapp.com/user")
       .then((res) => res.json())
       .then((data) => setUsers(data));
     // .then((data) => console.log(data));

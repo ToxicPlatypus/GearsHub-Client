@@ -10,7 +10,7 @@ const MyAppointments = () => {
   const email = user.email;
   console.log("email", email);
   useEffect(() => {
-    fetch(`http://localhost:5000/myOrder?email=${email}`)
+    fetch(`https://still-dusk-64768.herokuapp.com/myOrder?email=${email}`)
       .then((res) => res.json())
       .then((data) => setTools(data));
   }, [user]);
@@ -44,14 +44,17 @@ const MyAppointments = () => {
                   <td>{a.phone}</td>
                   <td className="text-center">{a.orderQuantity}</td>
                   <td>{a.sumPrice}</td>
-                  <td><Link to="/payment" className="btn btn-sm btn-accent">Pay Now</Link></td>
+                  <td>
+                    <Link to="/payment" className="btn btn-sm btn-accent">
+                      Pay Now
+                    </Link>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       </div>
-      
     </div>
   );
 };

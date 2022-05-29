@@ -39,13 +39,12 @@ const Purchase = () => {
         orderQuantity,
         sumPrice,
         toolName,
-      
       };
       const updatedQuantity = available - number;
       const newQuantity = { updatedQuantity };
 
       //sending order details to the database
-      fetch("http://localhost:5000/order", {
+      fetch("https://still-dusk-64768.herokuapp.com/order", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -57,7 +56,7 @@ const Purchase = () => {
           toast.success("Order done");
 
           //updating the available quantity after a order has been placed
-          fetch(`http://localhost:5000/service/${id.id}`, {
+          fetch(`https://still-dusk-64768.herokuapp.com/service/${id.id}`, {
             method: "PATCH",
             headers: {
               "content-type": "application/json",
@@ -73,7 +72,7 @@ const Purchase = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/service/${id.id}`)
+    fetch(`https://still-dusk-64768.herokuapp.com/service/${id.id}`)
       .then((res) => res.json())
       .then((data) => setSinglePart(data));
   }, [id, singlePart]);
