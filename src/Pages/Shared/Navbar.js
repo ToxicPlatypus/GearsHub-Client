@@ -27,6 +27,9 @@ const Navbar = () => {
           <Link to="/dashboard">Dashboard</Link>
         </li>
       )}
+      <li>
+        <Link to="/portfolio">My Portfolio</Link>
+      </li>
     </>
   );
   return (
@@ -74,7 +77,6 @@ const Navbar = () => {
           </Link>
         )}
       </div>
-      
     </div>
   );
 };

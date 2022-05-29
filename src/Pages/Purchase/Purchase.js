@@ -23,14 +23,26 @@ const Purchase = () => {
     if (number < minimum || number > available) {
       toast.error(`You can order minimum ${minimum} and maximum ${available}`);
     } else {
+      const orderQuantity = event.target.orderQuantity.value;
+
       const name = event.target.name.value;
+      const toolName = singlePart.name;
       const email = event.target.email.value;
       const address = event.target.address.value;
-      const phone = event.target.name.value;
-      const orderDetails = { name, email, address, phone };
+      const phone = event.target.phone.value;
+      const sumPrice = singlePart.price * orderQuantity;
+      const orderDetails = {
+        name,
+        email,
+        address,
+        phone,
+        orderQuantity,
+        sumPrice,
+        toolName,
+      
+      };
       const updatedQuantity = available - number;
       const newQuantity = { updatedQuantity };
-      console.log("new quantity", newQuantity);
 
       //sending order details to the database
       fetch("http://localhost:5000/order", {

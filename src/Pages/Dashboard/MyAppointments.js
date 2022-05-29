@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const MyAppointments = () => {
   const [tools, setTools] = useState([]);
   const [user] = useAuthState(auth);
+  const navigate = useNavigate();
   const email = user.email;
   console.log("email", email);
   useEffect(() => {
@@ -22,59 +24,34 @@ const MyAppointments = () => {
               <tr>
                 <th></th>
                 <th>Name</th>
+                <th>Tool Name</th>
                 <th>Email</th>
                 <th>Address</th>
                 <th>Phone</th>
                 <th>Order Quantity</th>
+                <th>Total Price</th>
+                <th>Payment</th>
               </tr>
             </thead>
             <tbody>
-              {/* <!-- row 1 --> */}
-              <tr>
-                <th>1</th>
-                <td>Cy Ganderton</td>
-                <td>Quality Control Specialist</td>
-                <td>Blue</td>
-              </tr>
-              {/* <!-- row 2 --> */}
-              <tr>
-                <th>2</th>
-                <td>Hart Hagerty</td>
-                <td>Desktop Support Technician</td>
-                <td>Purple</td>
-              </tr>
+              {tools.map((a, index) => (
+                <tr>
+                  <th>{index + 1}</th>
+                  <td>{a.name}</td>
+                  <td>{a.toolName}</td>
+                  <td>{a.email}</td>
+                  <td>{a.address}</td>
+                  <td>{a.phone}</td>
+                  <td className="text-center">{a.orderQuantity}</td>
+                  <td>{a.sumPrice}</td>
+                  <td><Link to="/payment" className="btn btn-sm btn-accent">Pay Now</Link></td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
       </div>
-      <p>{tools.length}</p>
-      <div className="grid grid-cols-4">
-        {tools.map((tool) => (
-          <div>
-            {" "}
-            <h2>Name: {tool.name}</h2>
-          </div>
-        ))}
-        {tools.map((tool) => (
-          <div>
-            {" "}
-            <h2>Email: {tool.email}</h2>
-          </div>
-        ))}
-        {tools.map((tool) => (
-          <div>
-            {" "}
-            <h2>Address: {tool.address}</h2>
-          </div>
-        ))}
-
-        {tools.map((tool) => (
-          <div>
-            {" "}
-            <h2>Phone: {tool.phone}</h2>
-          </div>
-        ))}
-      </div>
+      
     </div>
   );
 };
